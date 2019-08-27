@@ -1,5 +1,26 @@
-alert("equsidejajasalu2");
+const buttons = document.querySelectorAll('button');
 
-let btnC = document.getElementById('btnC');
+const playNote = event =>{
+    const button = event.target;
+    const note = button.dataset.note;
+    const audioId = (`audio${note}`);
+    console.log(`audio${note}`);
+    const audio = document.getElementById(audioId);
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play();
+}
 
-btnC.addEventListener('click' , ()=>{alert('fredi')});
+buttons.forEach(
+    button  =>  button.addEventListener('click' , playNote)
+);
+
+const keyNoteDown = event => {
+    //console.log(event);
+    const key = event.key;
+    console.log(key);
+    const button =  document.querySelector(`button[data-key="${key}"]`);
+    if(button) button.click();
+}
+
+document.addEventListener('keydown' , keyNoteDown)
