@@ -23,4 +23,4 @@ const keyNoteDown = event => {
     if(button) button.click();
 }
 
-document.addEventListener('keydown' , keyNoteDown)
+document.addEventListener('keydown' , keyNoteDown);
